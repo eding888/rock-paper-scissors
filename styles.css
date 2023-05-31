@@ -60,11 +60,34 @@ body{
     width: 100px;
 }
 
+@keyframes messagePop {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-50px);
+  }
+  60%{
+    transform: translateY(-50px);
+  }
+  80%{
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.messageAnimation{
+    animation: messagePop 2s ease-in-out 1;
+}
 
 #msg{
     position: relative;
     top: -50px;
+    font-size: 14px;
 }
+
 #title{
     font-weight: bold;
     font-size: 2rem;

@@ -89,12 +89,28 @@ body{
         background-color: #C4A1FF;
     }
 }
-
+@keyframes finalLoss{
+    0%{
+        transform: translateY(-55px);
+    }
+    50% {
+        transform: translateY(-60px);
+    }
+    100% {
+        transform: translateY(-55px);
+    }
+}
 .scoreUpdateAnimation{
     animation: scoreUpdate 1s ease-in-out 1;
 }
 .messageAnimation{
     animation: messagePop 2s ease-in-out 1;
+}
+.finalMessageLoss{
+    animation: finalLoss 2s ease-in-out infinite;
+}
+.finalMessageWin{
+    animation: finalWin 2s ease-in-out infinite;
 }
 
 #msg{

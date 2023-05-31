@@ -1,8 +1,8 @@
 let listenerEnabled = true;
 let playerScore = 0;
 let cpuScore = 0;
-let roundsPlayed = 0;
-const totalRounds = 10;
+
+const scoreToWin = 5;
 
 const gameOutcomes =
 [[tie, lose, win],
@@ -88,6 +88,19 @@ function play(player1Option, player2Option){
         Your opponent played ${rockPaperScissors[player2Option]}.`;
         gameOutcomes[player1Option][player2Option]();
         update();
+    }
+
+    if(playerScore >= scoreToWin){
+        msg.textContent = "You win!"
+        msg.style.fontWeight = "bold";
+        msg.style.fontSize = "24px";
+        msg.classList.add("finalMessage");
+    }
+    else if(cpuScore >= scoreToWin){
+        msg.textContent = "You lose!"
+        msg.style.fontWeight = "bold";
+        msg.style.fontSize = "24px";
+        msg.classList.add("finalMessage");
     }
 
  }

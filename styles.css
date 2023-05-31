@@ -2,6 +2,7 @@ body{
     background-color: #FFDB58;
     font-family: sans-serif;
     height: 100vh;
+    font-weight: bold;
 }
 
 .side-by-side-items{
@@ -36,7 +37,7 @@ body{
     background-color: #C4A1FF;
 }
 .alt-color2{
-    background-color: #7DF9FF;
+    background-color: #90EE90;
 }
 
 .default-margin{

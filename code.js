@@ -99,13 +99,11 @@ function play(player1Option, player2Option){
         if(playerScore >= scoreToWin || cpuScore >= scoreToWin){
             if(playerScore >= scoreToWin){
                 msg.textContent = "You win!"
-                msg.style.fontWeight = "bold";
                 msg.style.fontSize = "24px";
                 msg.classList.add("finalMessageWin");
             }
             else if(cpuScore >= scoreToWin){
                 msg.textContent = "You lose!"
-                msg.style.fontWeight = "bold";
                 msg.style.fontSize = "24px";
                 msg.classList.add("finalMessageLoss");
             }
@@ -142,7 +140,8 @@ function play(player1Option, player2Option){
 function closeOut(){
     const playAgainButton = document.createElement('button');
     playAgainButton.classList.add("rounded-container", "rps-button", "brutal-shadow", "alt-color", "extra-top-margin");
-    playAgainButton.textContent = "Play Again?"
+    playAgainButton.textContent = "Replay?";
+    playAgainButton.style.backgroundColor = "#FF6B6B";
     playAgainButton.addEventListener("click", () =>{
         location.reload();
     });

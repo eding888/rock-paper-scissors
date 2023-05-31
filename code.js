@@ -1,4 +1,4 @@
-
+let listenerEnabled = true;
 let playerScore = 0;
 let cpuScore = 0;
 let roundsPlayed = 0;
@@ -15,6 +15,10 @@ const gameOutcomes =
 let messageText = "";
 
 const msg = document.getElementById("msg");
+const playerScoreBox = document.getElementById("playerScore");
+const playerScoreContainer = document.getElementById("playerScoreBox");
+const cpuScoreBox = document.getElementById("cpuScore");
+const cpuScoreContainer = document.getElementById("cpuScoreBox");
 const rockBtn = document.getElementById("rockBtn");
 const rockImg = document.getElementById("rockImg");
 const paperBtn = document.getElementById("paperBtn");
@@ -49,21 +53,24 @@ function win(){
     messageText += "\nWin!"
     message(messageText);
     playerScore++;
+    scoreUpdateAnimation(playerScoreContainer);
+
     messageText = "";
-    
 }
 
 function lose(){
     messageText += "\nLoss..."
     message(messageText);
     cpuScore++;
+    scoreUpdateAnimation(cpuScoreContainer);
     messageText = "";
 }
 
 function tie(){
     messageText += "\nTie."
     message(messageText);
-
+    scoreUpdateAnimation(playerScoreContainer);
+    scoreUpdateAnimation(cpuScoreContainer);
     messageText = "";
 
 }
@@ -75,18 +82,34 @@ function cpuOption(){
 
 function play(player1Option, player2Option){
     //0 - rock, 1- paper, 2- scissors
-    msg.classList.remove("messageAnimation");
-    messageText += `You played ${rockPaperScissors[player1Option]}.
-    Your opponent played ${rockPaperScissors[player2Option]}.`;
-    gameOutcomes[player1Option][player2Option]();
-    
+    if(listenerEnabled){
+        msg.classList.remove("messageAnimation");
+        messageText += `You played ${rockPaperScissors[player1Option]}.
+        Your opponent played ${rockPaperScissors[player2Option]}.`;
+        gameOutcomes[player1Option][player2Option]();
+        update();
+    }
 
  }
 
  function message(text){
+    listenerEnabled = false;
     msg.textContent = text;
     msg.classList.add("messageAnimation");
     setTimeout(function() {
         msg.classList.remove("messageAnimation");
+        listenerEnabled = true;
       }, 2000);
+ }
+
+ function scoreUpdateAnimation(container){
+    container.classList.add("scoreUpdateAnimation");
+    setTimeout(function() {
+        container.classList.remove("scoreUpdateAnimation");
+      }, 1000);
+ }
+
+ function update(){
+    playerScoreBox.textContent = playerScore;
+    cpuScoreBox.textContent = cpuScore;
  }

@@ -78,6 +78,21 @@ body{
   }
 }
 
+@keyframes scoreUpdate{
+    0%{
+        background-color: #C4A1FF;
+    }
+    50%{
+        background-color: #E3DFF2;
+    }
+    100%{
+        background-color: #C4A1FF;
+    }
+}
+
+.scoreUpdateAnimation{
+    animation: scoreUpdate 1s ease-in-out 1;
+}
 .messageAnimation{
     animation: messagePop 2s ease-in-out 1;
 }

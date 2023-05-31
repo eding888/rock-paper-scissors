@@ -51,9 +51,14 @@ body{
     font-weight: bold;
     text-align: center;
     width: 80px;
-    
+    cursor: pointer;
+    transition: 0.5s;
 }
 
+.rps-button:hover{
+    background-color: #BAFCA2;
+    width: 100px;
+}
 
 
 

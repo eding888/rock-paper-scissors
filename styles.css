@@ -1,0 +1,146 @@
+
+body{
+    background-color: #FFDB58;
+    font-family: sans-serif;
+    height: 100vh;
+    font-weight: bold;
+}
+
+.side-by-side-items{
+    display: flex;
+    justify-content: center;
+}
+.vertically-alligned-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.rounded-container{
+    width: auto;
+    border: black solid 2px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+
+}
+
+.brutal-shadow{
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+.emoji-image{
+    font-size: 3rem;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.5s;
+}
+.alt-color{
+    background-color: #C4A1FF;
+}
+.alt-color2{
+    background-color: #90EE90;
+}
+
+.default-margin{
+    margin: 10px;
+}
+.extra-top-margin{
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.rps-button{
+    font-weight: bold;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.rps-button:hover{
+    background-color: #BAFCA2;
+    width: 100px;
+}
+
+@keyframes messagePop {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-50px);
+  }
+  60%{
+    transform: translateY(-50px);
+  }
+  80%{
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scoreUpdate{
+    0%{
+        background-color: #C4A1FF;
+    }
+    50%{
+        background-color: #E3DFF2;
+    }
+    100%{
+        background-color: #C4A1FF;
+    }
+}
+@keyframes finalLoss{
+    0%{
+        transform: translateY(-55px);
+        color: #ff0000;
+    }
+    50% {
+        transform: translateY(-60px);
+        color: #590000;
+    }
+    100% {
+        transform: translateY(-55px);
+        color: #ff0000;
+    }
+}
+
+@keyframes finalWin{
+    0%{
+        transform: translateY(-55px);
+        color: #05f50d;
+    }
+    50% {
+        transform: translateY(-60px);
+        color: #05850a
+    }
+    100% {
+        transform: translateY(-55px);
+        color: #05f50d;
+    }
+}
+.scoreUpdateAnimation{
+    animation: scoreUpdate 1s ease-in-out 1;
+}
+.messageAnimation{
+    animation: messagePop 2s ease-in-out 1;
+}
+.finalMessageLoss{
+    animation: finalLoss 2s ease-in-out infinite;
+}
+.finalMessageWin{
+    animation: finalWin 2s ease-in-out infinite;
+}
+
+#msg{
+    position: relative;
+    top: -50px;
+    font-size: 12px;
+}
+
+#title{
+    font-weight: bold;
+    font-size: 2rem;
+    z-index: 69;
+}

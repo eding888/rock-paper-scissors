@@ -30,12 +30,13 @@ body{
     font-size: 3rem;
     text-align: center;
     padding: 15px;
+    transition: transform 0.5s;
 }
 .alt-color{
     background-color: #C4A1FF;
 }
 .alt-color2{
-    background-color: #daf5f0;
+    background-color: #7DF9FF;
 }
 
 .default-margin{
@@ -50,7 +51,11 @@ body{
     font-weight: bold;
     text-align: center;
     width: 80px;
+    
 }
+
+
+
 
 #title{
     font-weight: bold;

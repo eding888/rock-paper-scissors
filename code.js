@@ -24,3 +24,27 @@ const gameOutcomes =
     gameOutcomes[player1Option][player2Option];
     
  }
+
+
+
+const rockBtn = document.getElementById("rockBtn");
+const rockImg = document.getElementById("rockImg");
+const paperBtn = document.getElementById("paperBtn");
+const paperImg = document.getElementById("paperImg");
+const scissorsBtn = document.getElementById("scissorsBtn");
+const scissorsImg = document.getElementById("scissorsImg");
+
+hoverButtonAnimation(rockBtn, rockImg);
+hoverButtonAnimation(paperBtn, paperImg);
+hoverButtonAnimation(scissorsBtn, scissorsImg);
+
+function hoverButtonAnimation(btn, img){
+    
+      btn.addEventListener("mouseover", () => {
+        img.style.transform = "translateY(-10px)";
+      });
+      
+      btn.addEventListener("mouseout", () => {
+        img.style.transform = "translateY(0)";
+      });
+}

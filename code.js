@@ -107,7 +107,7 @@ function play(player1Option, player2Option){
                 msg.style.fontSize = "24px";
                 msg.classList.add("finalMessageLoss");
             }
-            playing = false;
+            
             closeOut();
         }
     }
@@ -138,6 +138,7 @@ function play(player1Option, player2Option){
 
  
 function closeOut(){
+    playing = false;
     const playAgainButton = document.createElement('button');
     playAgainButton.classList.add("rounded-container", "rps-button", "brutal-shadow", "alt-color", "extra-top-margin");
     playAgainButton.textContent = "Replay?";

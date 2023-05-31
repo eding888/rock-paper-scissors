@@ -92,12 +92,30 @@ body{
 @keyframes finalLoss{
     0%{
         transform: translateY(-55px);
+        color: #ff0000;
     }
     50% {
         transform: translateY(-60px);
+        color: #590000;
     }
     100% {
         transform: translateY(-55px);
+        color: #ff0000;
+    }
+}
+
+@keyframes finalWin{
+    0%{
+        transform: translateY(-55px);
+        color: #05f50d;
+    }
+    50% {
+        transform: translateY(-60px);
+        color: #05850a
+    }
+    100% {
+        transform: translateY(-55px);
+        color: #05f50d;
     }
 }
 .scoreUpdateAnimation{

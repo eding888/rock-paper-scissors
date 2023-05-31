@@ -1,8 +1,9 @@
 let listenerEnabled = true;
+let playing = true;
 let playerScore = 0;
 let cpuScore = 0;
 
-const scoreToWin = 5;
+const scoreToWin = 1;
 
 const gameOutcomes =
 [[tie, lose, win],
@@ -19,12 +20,16 @@ const playerScoreBox = document.getElementById("playerScore");
 const playerScoreContainer = document.getElementById("playerScoreBox");
 const cpuScoreBox = document.getElementById("cpuScore");
 const cpuScoreContainer = document.getElementById("cpuScoreBox");
+
+const buttons = document.querySelectorAll('button');
 const rockBtn = document.getElementById("rockBtn");
 const rockImg = document.getElementById("rockImg");
 const paperBtn = document.getElementById("paperBtn");
 const paperImg = document.getElementById("paperImg");
 const scissorsBtn = document.getElementById("scissorsBtn");
 const scissorsImg = document.getElementById("scissorsImg");
+
+const playAgainSpace = document.getElementById("playAgain");
 
 hoverButtonAnimation(rockBtn, rockImg);
 hoverButtonAnimation(paperBtn, paperImg);
@@ -82,25 +87,31 @@ function cpuOption(){
 
 function play(player1Option, player2Option){
     //0 - rock, 1- paper, 2- scissors
-    if(listenerEnabled){
-        msg.classList.remove("messageAnimation");
-        messageText += `You played ${rockPaperScissors[player1Option]}.
-        Your opponent played ${rockPaperScissors[player2Option]}.`;
-        gameOutcomes[player1Option][player2Option]();
-        update();
-    }
+    if(playing){
+        if(listenerEnabled){
+            msg.classList.remove("messageAnimation");
+            messageText += `You played ${rockPaperScissors[player1Option]}.
+            Your opponent played ${rockPaperScissors[player2Option]}.`;
+            gameOutcomes[player1Option][player2Option]();
+            update();
+        }
 
-    if(playerScore >= scoreToWin){
-        msg.textContent = "You win!"
-        msg.style.fontWeight = "bold";
-        msg.style.fontSize = "24px";
-        msg.classList.add("finalMessage");
-    }
-    else if(cpuScore >= scoreToWin){
-        msg.textContent = "You lose!"
-        msg.style.fontWeight = "bold";
-        msg.style.fontSize = "24px";
-        msg.classList.add("finalMessage");
+        if(playerScore >= scoreToWin || cpuScore >= scoreToWin){
+            if(playerScore >= scoreToWin){
+                msg.textContent = "You win!"
+                msg.style.fontWeight = "bold";
+                msg.style.fontSize = "24px";
+                msg.classList.add("finalMessageWin");
+            }
+            else if(cpuScore >= scoreToWin){
+                msg.textContent = "You lose!"
+                msg.style.fontWeight = "bold";
+                msg.style.fontSize = "24px";
+                msg.classList.add("finalMessageLoss");
+            }
+            playing = false;
+            closeOut();
+        }
     }
 
  }
@@ -126,3 +137,14 @@ function play(player1Option, player2Option){
     playerScoreBox.textContent = playerScore;
     cpuScoreBox.textContent = cpuScore;
  }
+
+ 
+function closeOut(){
+    const playAgainButton = document.createElement('button');
+    playAgainButton.classList.add("rounded-container", "rps-button", "brutal-shadow", "alt-color", "extra-top-margin");
+    playAgainButton.textContent = "Play Again?"
+    playAgainButton.addEventListener("click", () =>{
+        location.reload();
+    });
+    playAgainSpace.appendChild(playAgainButton);
+}

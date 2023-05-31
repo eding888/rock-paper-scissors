@@ -1,3 +1,4 @@
+
 body{
     background-color: #FFDB58;
     font-family: sans-serif;
@@ -135,7 +136,7 @@ body{
 #msg{
     position: relative;
     top: -50px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #title{

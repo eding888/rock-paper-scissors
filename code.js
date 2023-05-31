@@ -3,7 +3,7 @@ let playing = true;
 let playerScore = 0;
 let cpuScore = 0;
 
-const scoreToWin = 1;
+const scoreToWin = 5;
 
 const gameOutcomes =
 [[tie, lose, win],
